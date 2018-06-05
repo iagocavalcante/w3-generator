@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Config>
+  <Trace>
+    <traceAtivo>1</traceAtivo>
+    <tracePath>D:\SPABANPARA\TRACE</tracePath>
+    <traceTAG><%= solutionName %></traceTAG>
+    <traceNivelDebug>3</traceNivelDebug>
+    <traceDias>1</traceDias>
+  </Trace>
+</Config>

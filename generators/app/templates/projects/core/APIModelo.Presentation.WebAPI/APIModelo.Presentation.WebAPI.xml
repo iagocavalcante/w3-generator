@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name><%= solutionName %>.Presentation.WebAPI</name>
+    </assembly>
+    <members>
+        <member name="M:<%= solutionName %>.Presentation.WebAPI.Controllers.BaseController.BadRequest(FluentValidation.Results.ValidationResult)">
+            <summary>
+            Retorna status code 400 com a lista de erros de validação
+            </summary>
+            <param name="validation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:<%= solutionName %>.Presentation.WebAPI.Controllers.ValuesController.Get(System.Int32)">
+            <summary>
+            Examplo GET do model example
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:<%= solutionName %>.Presentation.WebAPI.Controllers.ValuesController.Post(<%= solutionName %>.Presentation.WebAPI.Models.modelExampleViewModel)">
+            <summary>
+            Exemplo POST
+            </summary>
+            <param name="filtro"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

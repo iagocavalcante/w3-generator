@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Iago Cavalcante",
+      "authorEmail": "iagoangelimc@gmail.com",
+      "authorUrl": "iagocavalcante.com.br"
+    }
+  }
+}

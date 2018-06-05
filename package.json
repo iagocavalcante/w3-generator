@@ -1,0 +1,104 @@
+{
+  "name": "generator-api-netcore",
+  "version": "0.0.0",
+  "description": "Gerador inicial de apis usando a arquitetura definida pelo time de backend de .net",
+  "homepage": "w3as.com.br",
+  "author": {
+    "name": "Iago Cavalcante",
+    "email": "iagoangelimc@gmail.com",
+    "url": "iagocavalcante.com.br"
+  },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
+  "keywords": [
+    ".netcore",
+    "api",
+    "ddd",
+    "yeoman-generator"
+  ],
+  "devDependencies": {
+    "yeoman-test": "^1.7.0",
+    "yeoman-assert": "^3.1.0",
+    "coveralls": "^3.0.0",
+    "nsp": "^2.8.0",
+    "eslint": "^4.19.1",
+    "prettier": "^1.11.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.1.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-config-xo": "^0.20.1",
+    "jest": "^22.0.6"
+  },
+  "engines": {
+    "npm": ">= 4.0.0"
+  },
+  "dependencies": {
+    "findup-sync": "^0.3.0",
+    "mkdirp": "^0.5.1",
+    "nconf": "^0.8.2",
+    "uuid": "^2.0.1",
+    "vs_projectname": "^1.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.6.1",
+    "lodash": "^4.17.4",
+    "yeoman-generator": "^2.0.1",
+    "chalk": "^2.1.0",
+    "yosay": "^2.0.1"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "scripts": {
+    "prepublishOnly": "nsp check",
+    "pretest": "eslint .",
+    "precommit": "lint-staged",
+    "test": "jest"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "xo",
+      "prettier"
+    ],
+    "env": {
+      "jest": true,
+      "node": true
+    },
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "printWidth": 90
+        }
+      ]
+    },
+    "plugins": [
+      "prettier"
+    ]
+  },
+  "dotnet": {
+    "lts": {
+      "version": "1.0.4",
+      "targetFramework": "netcoreapp1.0"
+    },
+    "current": {
+      "version": "1.1.1",
+      "targetFramework": "netcoreapp1.1"
+    }
+  },
+  "repository": "iagocavalcante/generator-api-netcore",
+  "license": "MIT"
+}
