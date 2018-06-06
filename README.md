@@ -16,6 +16,19 @@ Então gere seu novo projeto:
 yo w3-generator
 ```
 
+```bash
+> Projeto com vue
+> API .netcore 2
+> API spring
+> API node
+```
+
+ou
+
+```bash
+yo w3-generator [vue, core, spring, node] [nome_projeto]
+```
+
 ## Getting To Know Yeoman
 
  * Yeoman has a heart of gold.
