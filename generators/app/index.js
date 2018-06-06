@@ -177,7 +177,7 @@ var W3Generator = class extends Generator {
           }
         );
 
-        this.fs.copy(this.sourceRoot() + '\\.gitignore', this.options.applicationName + '\\.gitignore');
+        this.fs.copy(this.sourceRoot() + '/gitignore.txt', this.options.applicationName + '/.gitignore');
 
         break;
 
