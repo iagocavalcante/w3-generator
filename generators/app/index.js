@@ -7,7 +7,7 @@ var fs = require('fs');
 var mkdirp = require('mkdirp');
 var path = require('path');
 var guid = require('uuid');
-var rename = require('gulp-rename');
+const rename = require('gulp-rename');
 var replace = require('gulp-replace');
 var projectName = require('vs_projectname');
 var pckg = require('../../package.json');
@@ -159,25 +159,25 @@ var W3Generator = class extends Generator {
         break;
 
       case 'core':
-        this.sourceRoot(path.join(__dirname, '../app/templates/projects/' + this.options.type));
+        this.sourceRoot(path.join(__dirname, '../app/templates/' + this.options.type));
 
-        var solutionName = this.options.applicationName;
-
+        let solutionName = this.options.applicationName;
+        
+        this.registerTransformStream(rename(function (path) {
+          path.basename = path.basename.replace(/(APIModelo)/g, solutionName);
+          path.dirname = path.dirname.replace(/(APIModelo)/g, solutionName);
+          return path;
+        }));
+        
         this.fs.copyTpl(
           this.templatePath(),
-          this.options.applicationName, {
+          this.options.applicationName,
+          {
             solutionName: solutionName,
           }
         );
 
-
-        this.registerTransformStream(rename(function (path) {
-          path.basename = path.basename.replace(/(APIModelo)/g, solutionName);
-          path.dirname = path.dirname.replace(/(APIModelo)/g, solutionName);
-        }));
-
-
-        this.fs.copy(this.sourceRoot() + '/.gitignore', this.options.applicationName + '/.gitignore');
+        this.fs.copy(this.sourceRoot() + '\\.gitignore', this.options.applicationName + '\\.gitignore');
 
         break;
 
@@ -203,44 +203,48 @@ var W3Generator = class extends Generator {
         break;
 
       case 'node':
-        this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
+        this.sourceRoot(path.join(__dirname, '../app/templates/' + this.options.type));
 
-        this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
+        let projectName = this.options.applicationName;
 
-        this.template(this.sourceRoot() + '/Node.cs', this.applicationName + '/Program.cs', this.templatedata);
+        this.registerTransformStream(rename(function (path) {
+          path.basename = path.basename.replace(/(node)/g, projectName);
+          path.dirname = path.dirname.replace(/(node)/g, projectName);
+          return path;
+        }));
 
-        this.template(this.sourceRoot() + '/Startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
+        this.fs.copy(
+          this.templatePath(),
+          this.options.applicationName
+        );
 
-        this.template(this.sourceRoot() + '/Company.WebApplication1.csproj', this.applicationName + '/' + this.applicationName + '.csproj', this.templatedata);
-
-        this.copy(this.sourceRoot() + '/web.config', this.applicationName + '/web.config');
-
-        /// Properties
-        this.fs.copyTpl(this.templatePath('Properties/**/*'), this.applicationName + '/Properties', this.templatedata);
-        this.copy(this.sourceRoot() + '/runtimeconfig.template.json', this.applicationName + '/runtimeconfig.template.json');
-        this.fs.copy(this.sourceRoot() + '/README.md', this.applicationName + '/README.md');
-        mkdirp.sync(this.applicationName + '/wwwroot');
-        this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
         break;
     }
   }
 
   end() {
-    this._showUsageHints();
+    switch (this.options.type) {
+      case 'core':
+        this.log('\r\n');
+        this.log('Seu projeto foi criado, você pode usar os comandos a seguir para continuar!');
+        this.log(chalk.green('    cd "' + this.options.applicationName + '"'));
+        this.log(chalk.green('    dotnet restore'));
+        this.log(chalk.green('    dotnet build') + ' (opcional)');
+        this.log('\r\n');
+        
+        break;
+      case 'node':
+        this.log('\r\n');
+        this.log('Seu projeto foi criado, você pode usar os comandos a seguir para continuar!');
+        this.log(chalk.green('    cd "' + this.options.applicationName + '"'));
+        this.log(chalk.green('    npm install'));
+        this.log('configure o projeto adequadamente!');
+        this.log(chalk.green('    npm run dev'));
+        this.log('\r\n');
+        break;
+    }
   }
 
-  /**
-   * Shows usage hints to end user
-   * Called on the very end of all processes
-   */
-  _showUsageHints() {
-    this.log('\r\n');
-    this.log('Seu projeto foi criado, você pode usar os comandos a seguir para continuar!');
-    this.log(chalk.green('    cd "' + this.options.applicationName + '"'));
-    this.log(chalk.green('    dotnet restore'));
-    this.log(chalk.green('    dotnet build') + ' (opcional)');
-    this.log('\r\n');
-  }
 }
 
 module.exports = W3Generator;

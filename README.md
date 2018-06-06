@@ -1,19 +1,19 @@
 # generator-api-netcore [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
-> Gerador inicial de apis usando a arquitetura definida pelo time de backend de .net
+> Gerador inicial de projetos usando a arquitetura definida pelo time de backend e frontend da [W3AS](http://w3as.com.br)
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-api-netcore using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+Primeiramente, instale [Yeoman](http://yeoman.io) e posteriormente generator-w3-generator usando [npm](https://www.npmjs.com/) (assumindo que você já tem instalado [node.js](https://nodejs.org/)).
 
 ```bash
 npm install -g yo
-npm install -g generator-api-netcore
+npm install -g generator-w3-generator
 ```
 
-Then generate your new project:
+Então gere seu novo projeto:
 
 ```bash
-yo api-netcore
+yo w3-generator
 ```
 
 ## Getting To Know Yeoman
@@ -28,11 +28,11 @@ yo api-netcore
 MIT © [Iago Cavalcante](iagocavalcante.com.br)
 
 
-[npm-image]: https://badge.fury.io/js/generator-api-netcore.svg
-[npm-url]: https://npmjs.org/package/generator-api-netcore
-[travis-image]: https://travis-ci.org/iagocavalcante/generator-api-netcore.svg?branch=master
-[travis-url]: https://travis-ci.org/iagocavalcante/generator-api-netcore
-[daviddm-image]: https://david-dm.org/iagocavalcante/generator-api-netcore.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/iagocavalcante/generator-api-netcore
-[coveralls-image]: https://coveralls.io/repos/iagocavalcante/generator-api-netcore/badge.svg
-[coveralls-url]: https://coveralls.io/r/iagocavalcante/generator-api-netcore
+[npm-image]: https://badge.fury.io/js/generator-w3-generator.svg
+[npm-url]: https://npmjs.org/package/generator-w3-generator
+[travis-image]: https://travis-ci.org/iagocavalcante/generator-w3-generator.svg?branch=master
+[travis-url]: https://travis-ci.org/iagocavalcante/generator-w3-generator
+[daviddm-image]: https://david-dm.org/iagocavalcante/generator-w3-generator.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/iagocavalcante/generator-w3-generator
+[coveralls-image]: https://coveralls.io/repos/iagocavalcante/generator-w3-generator/badge.svg
+[coveralls-url]: https://coveralls.io/r/iagocavalcante/generator-w3-generator
