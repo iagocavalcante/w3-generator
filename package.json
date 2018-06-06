@@ -1,6 +1,6 @@
 {
   "name": "generator-w3-generator",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Gerador inicial de apis usando a arquitetura definida pelo time de backend de .net",
   "homepage": "w3as.com.br",
   "author": {
