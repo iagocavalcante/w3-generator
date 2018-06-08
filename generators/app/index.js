@@ -81,6 +81,16 @@ var W3Generator = class extends Generator {
         .then((answers) => {
           this.options.type = answers.type
           this.options.applicationName = answers.applicationName
+          if (answers.type === 'spring') {
+            return this.prompt([
+              {
+                name: 'package',
+                message: 'Qual o nome do pacote?',
+              }
+            ]).then((answers) => { 
+              this.options.package = answers.package                
+            });
+          }
         });
     }
   }
@@ -182,24 +192,28 @@ var W3Generator = class extends Generator {
         break;
 
       case 'spring':
-        this.sourceRoot(path.join(__dirname, '../templates/projects/' + this.type));
+        this.sourceRoot(path.join(__dirname, '../app/templates/' + this.options.type));
 
-        this.copy(this.sourceRoot() + '/../../gitignore.txt', this.applicationName + '/.gitignore');
+        let nomeProjeto = this.options.applicationName;
+        let pacote = this.options.package;
 
-        this.template(this.sourceRoot() + '/Spring.cs', this.applicationName + '/Program.cs', this.templatedata);
+        this.registerTransformStream(rename(function (path) {
+          path.basename = path.basename.replace(/(nomeProjeto)/g, nomeProjeto);
+          path.dirname = path.dirname.replace(/(nomeProjeto)/g, nomeProjeto);
+          
+          path.basename = path.basename.replace(/(pacote)/g, pacote);
+          path.dirname = path.dirname.replace(/(pacote)/g, pacote);
+          return path;
+        }));
 
-        this.template(this.sourceRoot() + '/Startup.cs', this.applicationName + '/Startup.cs', this.templatedata);
-
-        this.template(this.sourceRoot() + '/Company.WebApplication1.csproj', this.applicationName + '/' + this.applicationName + '.csproj', this.templatedata);
-
-        this.copy(this.sourceRoot() + '/web.config', this.applicationName + '/web.config');
-
-        /// Properties
-        this.fs.copyTpl(this.templatePath('Properties/**/*'), this.applicationName + '/Properties', this.templatedata);
-        this.copy(this.sourceRoot() + '/runtimeconfig.template.json', this.applicationName + '/runtimeconfig.template.json');
-        this.fs.copy(this.sourceRoot() + '/README.md', this.applicationName + '/README.md');
-        mkdirp.sync(this.applicationName + '/wwwroot');
-        this.template(this.sourceRoot() + '/../../global.json', this.applicationName + '/global.json', this.templatedata);
+        this.fs.copyTpl(
+          this.templatePath(),
+          this.options.applicationName,
+          {
+            nomeProjeto: nomeProjeto,
+            pacote: pacote,
+          }
+        );
         break;
 
       case 'node':
