@@ -13,7 +13,7 @@ namespace <%= solutionName %>.Infra.CrossCutting
             #endregion
 
             #region Services 
-            //services.AddScoped<IConnectionFactory, ConnectionFactory>(x => new ConnectionFactory(new CryptSPA().decryptDES(configuration.GetConnectionString("sqlclust05"), "w3@sb1r0")));
+            //services.AddScoped<IConnectionFactory, ConnectionFactory>(x => new ConnectionFactory(new CryptSPA().decryptDES(configuration.GetConnectionString("example"), "example")));
             #endregion
 
             #region Validations
