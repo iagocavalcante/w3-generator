@@ -1,4 +1,4 @@
-# generator-api-netcore [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
+# generator-w3-generator [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 > Gerador inicial de projetos usando a arquitetura definida pelo time de backend e frontend da [W3AS](http://w3as.com.br)
 
 ## Installation
