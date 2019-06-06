@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "chalk": "^2.4.2",
-    "findup-sync": "^0.3.0",
+    "findup-sync": "^0.4.0",
     "gulp-rename": "^1.4.0",
     "gulp-replace": "^0.6.1",
     "lodash": "^4.17.11",
