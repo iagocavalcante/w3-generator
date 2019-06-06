@@ -46,7 +46,7 @@
     "lodash": "^4.17.11",
     "mkdirp": "^0.5.1",
     "nconf": "^0.10.0",
-    "uuid": "^2.0.1",
+    "uuid": "^3.0.0",
     "vs_projectname": "^1.0.0",
     "yeoman-generator": "^2.0.1",
     "yosay": "^2.0.1"
