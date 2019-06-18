@@ -27,7 +27,7 @@
     "eslint-config-prettier": "2.10.0",
     "eslint-config-xo": "0.26.0",
     "eslint-plugin-prettier": "2.7.0",
-    "husky": "0.14.3",
+    "husky": "2.4.1",
     "jest": "22.4.4",
     "lint-staged": "6.1.1",
     "nsp": "3.2.1",
