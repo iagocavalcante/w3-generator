@@ -29,7 +29,7 @@
     "eslint-plugin-prettier": "3.1.2",
     "husky": "4.0.10",
     "jest": "24.9.0",
-    "lint-staged": "10.0.0",
+    "lint-staged": "10.0.1",
     "nsp": "3.2.1",
     "prettier": "1.19.1",
     "yeoman-assert": "3.1.1",
