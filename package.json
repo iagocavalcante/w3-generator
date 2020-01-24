@@ -44,7 +44,7 @@
     "gulp-rename": "^2.0.0",
     "gulp-replace": "^1.0.0",
     "lodash": "^4.17.11",
-    "mkdirp": "^0.5.1",
+    "mkdirp": "^1.0.0",
     "nconf": "^0.10.0",
     "uuid": "^3.0.0",
     "vs_projectname": "^1.0.0",
