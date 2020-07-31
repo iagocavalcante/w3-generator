@@ -39,7 +39,7 @@
     "npm": ">= 4.0.0"
   },
   "dependencies": {
-    "chalk": "^3.0.0",
+    "chalk": "^4.0.0",
     "findup-sync": "^4.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-replace": "^1.0.0",
