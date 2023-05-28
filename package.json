@@ -31,7 +31,7 @@
     "jest": "26.2.2",
     "lint-staged": "10.2.11",
     "nsp": "3.2.1",
-    "prettier": "1.19.1",
+    "prettier": "2.8.8",
     "yeoman-assert": "3.1.1",
     "yeoman-test": "2.7.0"
   },
